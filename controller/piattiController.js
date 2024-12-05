@@ -4,7 +4,6 @@ const comments = require("../models/comments.js")
 function index(req, res) {
 
     const nomePiatto = req.query.titolo;
-    const tagsPiatto = req.query.tags;
     console.log(nomePiatto);
     let piatti = {
 
@@ -18,11 +17,6 @@ function index(req, res) {
         piatti.counter = piatti.data.length
     }
 
-    if (tagsPiatto) {
-        piatti.data = iMieiPiatti.filter((piatto) => piatto.tags.toLowerCase().includes(tagsPiatto.toLowerCase()))
-        piatti.counter = piatti.data.length;
-
-    }
 
 
     if (piatti.data.length < 1) {
@@ -62,7 +56,7 @@ function show(req, res) {
 }
 
 function store(req, res) {
-
+    console.log(req.body)
 
 
     let newID = 0;
@@ -81,7 +75,7 @@ function store(req, res) {
         img: req.body.img,
         tags: req.body.tags
     };
-    console.log(nuovoPiatto)
+
     iMieiPiatti.push(nuovoPiatto);
     res.json(nuovoPiatto)
 }

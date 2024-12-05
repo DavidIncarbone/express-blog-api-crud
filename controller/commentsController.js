@@ -1,12 +1,28 @@
 const comments = require("../models/comments.js");
 
 function index(req, res) {
-    const response = {
+    const testoCommento = req.query.testo;
+    let response = {
         totalCount: comments.length,
-        comments
+        data: [...comments]
     }
 
-    res.json(response)
+    if (testoCommento) {
+
+        response.data = comments.filter((comment) => comment.testo.toLowerCase().includes(testoCommento.toLowerCase()))
+
+    }
+    if (response.data.length < 1) {
+        res.status(404);
+        response = {
+
+            counter: 0,
+            error: 404,
+            message: "Non ci sono commenti per la tua ricerca",
+        }
+
+        res.json(response)
+    }
 }
 
 function show(req, res) {
@@ -49,6 +65,7 @@ function store(req, res) {
 
     };
     console.log(nuovoCommento)
+
     comments.push(nuovoCommento);
     res.json(nuovoCommento)
 }
@@ -56,7 +73,7 @@ function store(req, res) {
 function update(req, res) {
 
     const id = +(req.params.id)
-    const commentoScelto = comments.find((commento) => commento.id === id)
+    const commentoScelto = iMieiPiatti.find((commento) => commento.id === id)
     if (!commentoScelto) {
         res.status(404);
         res.json({
