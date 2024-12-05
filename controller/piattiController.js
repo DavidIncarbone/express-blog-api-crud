@@ -4,7 +4,10 @@ const comments = require("../models/comments.js")
 function index(req, res) {
 
     const nomePiatto = req.query.titolo;
-    console.log(nomePiatto);
+
+    const tagsPiatto = req.query.tags;
+
+
     let piatti = {
 
         counter: 5,
@@ -15,6 +18,11 @@ function index(req, res) {
 
         piatti.data = iMieiPiatti.filter((piatto) => piatto.titolo.toLowerCase().includes(nomePiatto.toLowerCase()))
         piatti.counter = piatti.data.length
+    }
+
+    if (tagsPiatto) {
+
+        piatti.data = iMieiPiatti.filter((piatto) => piatto.tags.join(",").toLowerCase().includes(tagsPiatto.toLowerCase()))
     }
 
 
