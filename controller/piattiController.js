@@ -62,7 +62,7 @@ function show(req, res) {
 }
 
 function store(req, res) {
-    console.log(req.body)
+
 
 
     let newID = 0;
@@ -81,7 +81,7 @@ function store(req, res) {
         img: req.body.img,
         tags: req.body.tags
     };
-
+    console.log(nuovoPiatto)
     iMieiPiatti.push(nuovoPiatto);
     res.json(nuovoPiatto)
 }

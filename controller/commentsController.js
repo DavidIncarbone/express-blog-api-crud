@@ -29,7 +29,7 @@ function show(req, res) {
 }
 
 function store(req, res) {
-    console.log(req.body)
+
 
 
     let newID = 0;
@@ -48,7 +48,7 @@ function store(req, res) {
         testo: req.body.testo,
 
     };
-
+    console.log(nuovoCommento)
     comments.push(nuovoCommento);
     res.json(nuovoCommento)
 }
@@ -56,7 +56,7 @@ function store(req, res) {
 function update(req, res) {
 
     const id = +(req.params.id)
-    const commentoScelto = iMieiPiatti.find((commento) => commento.id === id)
+    const commentoScelto = comments.find((commento) => commento.id === id)
     if (!commentoScelto) {
         res.status(404);
         res.json({
