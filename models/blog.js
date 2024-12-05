@@ -15,7 +15,9 @@ const iMieiPiatti = [
         titolo: "Cracker Barbabietola",
         contenuto: "FIBREXTRA! La bontà naturale delle fibre e l’equilibrio perfetto tra piacere e benessere.",
         img: "images/cracker_barbabietola.jpeg",
-        tags: ["#cornetti", "#integrali", "#soffici"]
+        tags: ["#cornetti", "#integrali", "#soffici"],
+        comments: []
+
     },
     {
         id: 3,
