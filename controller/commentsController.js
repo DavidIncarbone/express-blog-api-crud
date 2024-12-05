@@ -73,7 +73,7 @@ function store(req, res) {
 function update(req, res) {
 
     const id = +(req.params.id)
-    const commentoScelto = iMieiPiatti.find((commento) => commento.id === id)
+    const commentoScelto = comments.find((commento) => commento.id === id)
     if (!commentoScelto) {
         res.status(404);
         res.json({
