@@ -3,9 +3,10 @@
 const express = require("express");
 const router = express.Router();
 
+
 //import controller
 
-const { index, show, store, update, modify, destroy } = require("../controller/piattiController.js")
+const { index, show, store, update, modify, destroy } = require("../controllers/piattiController.js")
 
 
 

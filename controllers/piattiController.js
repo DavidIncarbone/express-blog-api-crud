@@ -1,7 +1,8 @@
 const iMieiPiatti = require("../models/blog.js");
-const comments = require("../models/comments.js")
+
 
 function index(req, res) {
+    // pippo.get();
 
     const nomePiatto = req.query.titolo;
 
@@ -45,7 +46,6 @@ function show(req, res) {
     const id = +(req.params.id);
     const piattoScelto = iMieiPiatti.find((piatto) => piatto.id === id)
 
-    const itemComments = comments.filter((comment) => comment.pizza_is === id)
 
 
     if (piattoScelto) {
@@ -54,6 +54,8 @@ function show(req, res) {
             piattoScelto,
         });
     } else {
+
+
         res.status(404);
         res.json({
             success: false,

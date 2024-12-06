@@ -5,7 +5,7 @@ const router = express.Router();
 
 //import controller
 
-const { index, show, store, update, modify, destroy } = require("../controller/commentsController.js")
+const { index, show, store, update, modify, destroy } = require("../controllers/commentsController.js")
 
 
 
